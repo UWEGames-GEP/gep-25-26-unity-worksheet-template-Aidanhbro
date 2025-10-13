@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  gameManager: {fileID: 506549192}
 --- !u!1001 &487122637
 PrefabInstance:
   m_ObjectHideFlags: 0
