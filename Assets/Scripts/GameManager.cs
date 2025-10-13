@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
  
     void Start()
     {
-        state = GameState.PAUSE;
+        state = GameState.GAMEPLAY;
 
 
     }
