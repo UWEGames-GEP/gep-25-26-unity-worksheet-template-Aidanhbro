@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public enum GameState { GAMEPLAY, ESCAPE, PAUSE, NULL };
+   
     public GameState state = GameState.PAUSE;
     bool hasChangedState = false;
  
@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
        
     }
 
+    
+
     private void LateUpdate()
     {
         if (hasChangedState)
@@ -65,5 +67,5 @@ public class GameManager : MonoBehaviour
 
 
 }
-
+public enum GameState { GAMEPLAY, ESCAPE, PAUSE, NULL };
 
