@@ -12,7 +12,9 @@ public class Inventory : MonoBehaviour
 
    public void AddItems(string itemName) 
     {
-    items.Add(itemName);
+      
+            items.Add(itemName);
+        
        
     }
 
