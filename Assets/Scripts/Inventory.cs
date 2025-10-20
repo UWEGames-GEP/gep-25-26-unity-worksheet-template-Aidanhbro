@@ -62,4 +62,16 @@ public class Inventory : MonoBehaviour
 
 
     }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+        ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();
+        if (collisionItem != null) 
+        {
+            AddItems(collisionItem.ItemName);
+            Console.WriteLine("Hit");
+            Destroy(collisionItem.gameObject);
+        }
+
+    }
 }
