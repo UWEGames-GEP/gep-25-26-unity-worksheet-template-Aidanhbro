@@ -16,5 +16,26 @@ public class PlayerCharacterController : ThirdPersonController
 
 
     
-    }  
+    }
+    private void OnRemoveItem(InputValue value) 
+    {
+        Inventory inv = GetComponent<Inventory>();
+        if (value.isPressed) 
+        {
+            // Debug.log("Remove Item");
+
+           // ItemObject itemToRemove = inv.items[0];
+
+            inv.removeItems();
+
+
+            //  GetComponent<Inventory>().removeItems();
+
+
+        }
+    
+    
+    
+    
+    }
 }
