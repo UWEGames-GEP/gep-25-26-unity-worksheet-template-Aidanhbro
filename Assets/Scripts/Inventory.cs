@@ -20,26 +20,13 @@ public class Inventory : MonoBehaviour
        
     }
 
-    public void removeItems(ItemObject item) 
-    {
-        //if (items.Contains(item)) 
-        //{
-        //items.Remove(item);
-        //}
-        //else {
-        //    Console.WriteLine("Item not found");
-
-        //}
-        items.Remove(item);
     
-    }
 
-   public void removeItems() 
+   public void removeItems(ItemObject item) 
     {
-    if (gameManager.state == GameState.GAMEPLAY&& items.Count>0) 
-    {
+    
             
-            ItemObject item = items[0];
+          //  ItemObject item = items[0];
             Vector3 currentPosition = transform.position;
             Vector3 forward = transform.forward;
             
@@ -57,7 +44,26 @@ public class Inventory : MonoBehaviour
             //items.RemoveAt(0); 
 
 
-     }
+     
+    }
+    public void removeItems()
+    {
+        if (gameManager.state == GameState.GAMEPLAY && items.Count > 0) 
+        {
+
+            ItemObject item = items[0];
+            removeItems(item);
+        }
+       
+
+    }
+    public void removeItems(int i) 
+    {
+        if (i < items.Count) 
+        {
+        removeItems(items[i]);
+        }
+    
     }
 
 
