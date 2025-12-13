@@ -27,7 +27,7 @@ public class PlayerCharacterController : ThirdPersonController
            // ItemObject itemToRemove = inv.items[0];
 
             inv.removeItems();
-
+           
 
             //  GetComponent<Inventory>().removeItems();
 

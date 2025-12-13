@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    public string WorldItems;
+    public string itemName;
+   // public string WorldItems;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //void Start()
     //{

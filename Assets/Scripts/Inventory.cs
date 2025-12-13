@@ -8,7 +8,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<ItemObject> items = new List<ItemObject>();
-     GameManager gameManager;
+     public GameManager gameManager;
      Transform worldItemsTransform;
    
    public void AddItems(ItemObject item) 
@@ -36,7 +36,8 @@ public class Inventory : MonoBehaviour
             Quaternion currentRotation = transform.rotation;
 
             Quaternion newRotation = currentRotation * Quaternion.Euler(0,0,180);
-                GameObject newItem = Instantiate(item.gameObject,newPosition,newRotation,worldItemsTransform);
+                
+        GameObject newItem = Instantiate(item.gameObject,newPosition,newRotation,worldItemsTransform);
           newItem.SetActive(true);
 
             items.Remove(item);
@@ -59,9 +60,10 @@ public class Inventory : MonoBehaviour
     }
     public void removeItems(int i) 
     {
-        if (i < items.Count) 
+        if (i < 3) 
         {
         removeItems(items[i]);
+         
         }
     
     }
@@ -71,9 +73,13 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         //AddItems("health");
-        //Console.WriteLine(items[1]);
+      //  Console.WriteLine(items[1]);
+        // gameManager = FindAnyObjectByType<GameManager>();
+        //Transform worldItemsTransform = GameObject.Find("WorldItems").transform;
         gameManager = FindAnyObjectByType<GameManager>();
-       Transform worldItemsTransform = GameObject.Find("WorldItems").transform;
+
+        
+        worldItemsTransform = GameObject.Find("WorldItems").transform;
     }
 
     // Update is called once per frame
