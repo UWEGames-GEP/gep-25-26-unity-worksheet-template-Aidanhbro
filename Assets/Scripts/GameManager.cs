@@ -4,18 +4,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-   
+
     public GameState state = GameState.PAUSE;
     bool hasChangedState = false;
- 
+    public GameObject inventoryUI;
+    
     void Start()
     {
         state = GameState.GAMEPLAY;
-
+        inventoryUI.SetActive(false);
 
     }
-   
-    public void Pausing ()
+
+    public void Pausing()
     {
         if (state == GameState.GAMEPLAY)
         {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
             hasChangedState = true;
 
         }
-        else if (state == GameState.PAUSE) 
+        else if (state == GameState.PAUSE)
         {
 
             state = GameState.GAMEPLAY;
@@ -35,10 +36,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+
     }
 
-    
+
+
+
 
     private void LateUpdate()
     {
@@ -46,20 +49,34 @@ public class GameManager : MonoBehaviour
         {
             hasChangedState = false;
 
-            if (state == GameState.GAMEPLAY) 
+            if (state == GameState.GAMEPLAY)
             {
                 Time.timeScale = 1.0f;
+
+
+
+                inventoryUI.SetActive(false);
+
+
+                Cursor.lockState = CursorLockMode.Locked;
             }
-            else if (state == GameState.PAUSE) 
+            else if (state == GameState.PAUSE)
             {
                 Time.timeScale = 0.0f;
+
+
+                inventoryUI.SetActive(true);
+
+                
+                Cursor.lockState = CursorLockMode.None;
+
             }
 
         }
 
 
 
-    }
+    } 
 
 
 
