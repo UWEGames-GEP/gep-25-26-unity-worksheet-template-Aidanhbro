@@ -23,9 +23,7 @@ public class Inventory : MonoBehaviour
     
 
    public void removeItems(ItemObject item) 
-    {
-    
-            
+    { 
           //  ItemObject item = items[0];
             Vector3 currentPosition = transform.position;
             Vector3 forward = transform.forward;
@@ -124,4 +122,6 @@ public class Inventory : MonoBehaviour
         }
 
     }
+   
+
 }
