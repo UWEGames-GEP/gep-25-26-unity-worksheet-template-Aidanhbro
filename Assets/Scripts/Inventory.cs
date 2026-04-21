@@ -15,7 +15,18 @@ public class Inventory : MonoBehaviour
     {
 
        // AddItems(collisionItem.items);
-        items.Add(item);
+       ItemObject existingItem = items.Find(i=>i.itemName==item.itemName);
+        if (existingItem != null) 
+        {
+            existingItem.itemAmount += item.itemAmount;
+            item.gameObject.SetActive(false);
+
+        }
+        else
+        {
+            items.Add(item);
+        }
+          
        
        
     }
@@ -23,8 +34,17 @@ public class Inventory : MonoBehaviour
     
 
    public void removeItems(ItemObject item) 
-    { 
-          //  ItemObject item = items[0];
+    {
+        //  ItemObject item = items[0];
+        //if (item.itemAmount > 1) 
+        //{
+        //    item.itemAmount--;
+        //    return;
+
+
+        //}
+
+
             Vector3 currentPosition = transform.position;
             Vector3 forward = transform.forward;
             
@@ -37,13 +57,24 @@ public class Inventory : MonoBehaviour
                 
         GameObject newItem = Instantiate(item.gameObject,newPosition,newRotation,worldItemsTransform);
           newItem.SetActive(true);
+        newItem.GetComponent<ItemObject>().itemAmount = 1;
 
+        //items.Remove(item);
+        //    Destroy(item.gameObject);
+
+
+        //items.RemoveAt(0); 
+        if (item.itemAmount > 1)
+        {
+            item.itemAmount--;
+        }
+        else
+        {
             items.Remove(item);
             Destroy(item.gameObject);
-            //items.RemoveAt(0); 
+        }
 
 
-     
     }
     public void removeItems()
     {
@@ -106,8 +137,8 @@ public class Inventory : MonoBehaviour
         if (collisionItem != null) 
         {
 
-
-            items.Add(collisionItem);
+            AddItems(collisionItem);
+            //items.Add(collisionItem);
             collisionItem.gameObject.SetActive(false);
 
 

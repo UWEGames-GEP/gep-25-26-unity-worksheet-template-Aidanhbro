@@ -4,7 +4,7 @@ public class ItemObject : MonoBehaviour
 {
    public string itemName;
    public int itemAmount;
-   public bool stackable;
+    public Sprite thumbnail;
     
 
    // public string WorldItems;

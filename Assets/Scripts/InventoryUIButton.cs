@@ -1,10 +1,13 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class InventoryUIButton : MonoBehaviour
 {
   
     public TMP_Text text;
+    public TMP_Text itemButtonAmount;
+    public Image thumbnailImage;
+
 
     public void SetButton(ItemObject item) 
     {
@@ -12,7 +15,8 @@ public class InventoryUIButton : MonoBehaviour
         //text.text = item.;WorldItems
       
         text.text = item.itemName;
-    
+        itemButtonAmount.text = item.itemAmount.ToString();
+        thumbnailImage.sprite = item.thumbnail;
     }
 
    
