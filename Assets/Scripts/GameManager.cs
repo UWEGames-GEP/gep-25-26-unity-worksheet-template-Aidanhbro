@@ -77,9 +77,6 @@ public class GameManager : MonoBehaviour
 
 
     } 
-
-
-
 }
 public enum GameState { GAMEPLAY, ESCAPE, PAUSE, NULL };
 
